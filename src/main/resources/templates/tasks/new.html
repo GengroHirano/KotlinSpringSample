@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>タスクの作成</title>
+</head>
+<body>
+<!--/* 省略記法を用いるためobjectを設定 */-->
+<form th:method="post" th:action="@{./}" th:object="${taskCreateForm}">
+    <div>
+        <label>
+            内容: <input type="text" th:field="*{content}"/>
+        </label>
+        <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}">エラーメッセージ</p>
+    </div>
+    <div>
+        <input type="submit" value="作成" />
+    </div>
+</form>
+</body>
+</html>
